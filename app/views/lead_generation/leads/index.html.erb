@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Lead ID</th>
       <th>Full Name</th>
       <th>Status</th>
       <th>Email</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
+        <td><%= lead.uid %></td>
         <td><%= lead.full_name %></td>
         <td><%= lead.status %></td>
         <td><%= lead.email %></td>

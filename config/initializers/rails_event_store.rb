@@ -22,10 +22,12 @@ Rails.configuration.to_prepare do
 
     # Leads Read Models
     store.subscribe(Leads::OnLeadIngested, to: [LeadGeneration::LeadIngested])
+    store.subscribe(Leads::OnLeadQualified, to: [LeadGeneration::LeadQualified])
   end
 
   # Register command handlers below
   Rails.configuration.command_bus.tap do |bus|
     bus.register(LeadGeneration::IngestLead, LeadGeneration::OnLeadIngested.new)
+    bus.register(LeadGeneration::QualifyLead, LeadGeneration::OnLeadQualified.new)
   end
 end
