@@ -19,6 +19,9 @@ Rails.configuration.to_prepare do
     store.subscribe_to_all_events(RailsEventStore::LinkByEventType.new)
     store.subscribe_to_all_events(RailsEventStore::LinkByCorrelationId.new)
     store.subscribe_to_all_events(RailsEventStore::LinkByCausationId.new)
+
+    # Leads Read Models
+    store.subscribe(Leads::OnLeadIngested, to: [LeadGeneration::LeadIngested])
   end
 
   # Register command handlers below

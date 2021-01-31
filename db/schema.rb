@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_083329) do
+ActiveRecord::Schema.define(version: 2021_01_31_163457) do
 
   create_table "event_store_events", force: :cascade do |t|
     t.string "event_id", limit: 36, null: false
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2021_01_31_083329) do
     t.index ["created_at"], name: "index_event_store_events_in_streams_on_created_at"
     t.index ["stream", "event_id"], name: "index_event_store_events_in_streams_on_stream_and_event_id", unique: true
     t.index ["stream", "position"], name: "index_event_store_events_in_streams_on_stream_and_position", unique: true
+  end
+
+  create_table "leads_leads", force: :cascade do |t|
+    t.string "uid"
+    t.string "full_name"
+    t.string "phone_number"
+    t.string "source"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.index ["uid"], name: "index_leads_leads_on_uid"
   end
 
 end

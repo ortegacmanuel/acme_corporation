@@ -1,1 +1,25 @@
 <h1>Leads</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Status</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= lead.full_name %></td>
+        <td><%= lead.status %></td>
+        <td><%= lead.email %></td>
+        <td><%= lead.phone_number %></td>
+        <td><%= lead.source %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

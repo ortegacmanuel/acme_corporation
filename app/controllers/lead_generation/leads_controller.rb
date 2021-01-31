@@ -1,7 +1,8 @@
 class LeadGeneration::LeadsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def index
+    @leads = Leads::Lead.all
   end
   
   def create
